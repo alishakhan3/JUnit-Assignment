@@ -1,0 +1,95 @@
+package test;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+public class user {
+	private Map<String, String> users;
+
+	/*public user() {
+		this.users = new HashMap<>();
+	}*/
+
+	public void registerUser(String email, String pwd) {
+		users.put(email, pwd);
+	}//new user
+
+	public boolean userExists(String email) {
+		if (users.containsKey(email)) {
+			return true;
+		}
+		return false;
+	}//checking for Forgot Password
+	
+	public void newPassword(String email, String pwd) {
+		users.replace(email, pwd);
+	}//updated Password
+
+	public boolean login(String email, String pwd) {
+		if (users.containsKey(email) && users.get(email).equals(pwd)) {
+			return true;
+		}
+		return false;
+	}//logging in
+
+	public static void main(String args[]) {
+		user u = new user();
+		Scanner sc = new Scanner(System.in);
+
+		System.out.println("Press 1 for Registering User. Press 2 for Forgot Password");
+
+		int op = sc.nextInt();
+		sc.nextLine();
+
+		if (op == 1) {
+
+			System.out.println("Enter an email: ");
+			String email = sc.nextLine();
+
+			System.out.println("Enter a password: ");
+			String pwd = sc.nextLine();
+
+			u.registerUser(email, pwd);
+
+		}//registering
+
+		if (op == 2) {
+
+			System.out.println("Enter your email: ");
+			String email = sc.nextLine();
+
+			if (u.userExists(email)) {
+				System.out.println("Email Sent Successfully\n");
+
+				System.out.println("Enter your new password: ");
+				String pwd = sc.nextLine();
+				
+				u.newPassword(email, pwd);
+
+			}
+			else {
+				System.out.println("Invalid Email");
+			}
+
+			
+		}//forgot password
+		
+		System.out.println("Log Into Your Account\n");
+		
+		System.out.println("Enter your email: ");
+		String email = sc.nextLine();
+
+		System.out.println("Enter your password: ");
+		String pwd = sc.nextLine();
+		
+		if (u.login(email, pwd)) {
+			System.out.println("Login Successful");
+		} 
+		else {
+			System.out.println("Invalid email or password");
+		}
+
+		sc.close();
+	}//main
+}//class

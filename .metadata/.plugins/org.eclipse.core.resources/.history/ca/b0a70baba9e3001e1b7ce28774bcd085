@@ -1,0 +1,24 @@
+package test;
+
+public class password {
+	private emailService es;
+	
+	public password(emailService es) {
+		this.es=es;
+	}
+	
+	public boolean resetPassword(String email) {
+		if(isValidEmail(email)) {
+			es.resent(email);
+			return true;
+		}
+		return false;
+	}
+	
+	private boolean isValidEmail(String email) {
+		return true;
+	}
+	
+}
+
+

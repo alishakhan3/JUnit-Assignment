@@ -1,0 +1,108 @@
+package test;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+public class user{
+	public Map<String, String> users = new HashMap<>();
+	public EmailService es;
+
+	public user(EmailService es) { this.es=es;}
+	 
+
+	public void registerUser(String email, String pwd) {
+		if(pwd.length()<6) {
+			System.out.println("Password length should be at least 6 characters");
+		}
+		else if(pwd.length()>20) {
+			System.out.println("Password length should not be more than 20 characters");
+		}
+		else {
+			users.put(email, pwd);
+			System.out.println("Registration Successful");
+		}
+	}// new user
+
+	public boolean userExists(String email) {
+		if (users.containsKey(email)) {
+			return true;
+		}
+		return false;
+	}// checking for Forgot Password
+
+	public void newPassword(String email, String pwd) {
+		users.replace(email, pwd);
+	}// updated Password
+
+	public boolean login(String email, String pwd) {
+		if (users.containsKey(email) && users.get(email).equals(pwd)) {
+			return true;
+		}
+		return false;
+	}// logging in
+	
+	
+	public void sendEmail(String to, String subject, String body) {
+		es.sendEmail(to, subject, body);
+	}
+	
+	
+	public static void main(String args[]) {
+		
+		EmailService es=new EmailService() {
+			@Override
+			public void sendEmail(String to, String subject, String body) {
+				System.out.println("Email sent to "+to+ "\nSubject: "+subject+"\nBody: "+body);
+			}
+
+		};
+		user u = new user(es);
+		String email="";
+		String pwd="";
+		Scanner sc = new Scanner(System.in);
+
+		System.out.println("Registering User\n");
+
+		System.out.println("Enter an email: ");
+		email = sc.nextLine();
+
+		System.out.println("Enter a password: ");
+		pwd = sc.nextLine();
+
+		u.registerUser(email, pwd);
+		
+		System.out.println("\nForgot Password\n");
+
+		System.out.println("Enter your email: ");
+		email = sc.nextLine();
+
+		if (u.userExists(email)) {
+			System.out.println("\nEmail Sent Successfully\n");
+
+			System.out.println("Enter your new password: ");
+			pwd = sc.nextLine();
+
+			u.newPassword(email, pwd);
+
+		} else {
+			System.out.println("\nInvalid Email");
+		}
+
+		System.out.println("\nLog Into Your Account\n");
+
+		System.out.println("Enter your email: ");
+		email = sc.nextLine();
+
+		System.out.println("Enter your password: ");
+		pwd = sc.nextLine();
+
+		if (u.login(email, pwd)) {
+			System.out.println("\nLogin Successful");
+		} else {
+			System.out.println("\nInvalid email or password");
+		}
+
+		sc.close();
+	}// main
+}// class

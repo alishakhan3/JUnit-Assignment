@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="UnitTesting" project="test" tests="4" started="4" failures="0" errors="0" ignored="0">
+  <testsuite name="test.UnitTesting" time="1.236" displayname="UnitTesting" uniqueid="[engine:junit-jupiter]/[class:test.UnitTesting]">
+    <testcase name="testPasswordLength" classname="test.UnitTesting" time="0.019" displayname="testPasswordLength()" uniqueid="[engine:junit-jupiter]/[class:test.UnitTesting]/[method:testPasswordLength()]"/>
+    <testcase name="testValidEmail" classname="test.UnitTesting" time="0.0" displayname="testValidEmail()" uniqueid="[engine:junit-jupiter]/[class:test.UnitTesting]/[method:testValidEmail()]"/>
+    <testcase name="testSendEmail" classname="test.UnitTesting" time="1.213" displayname="testSendEmail()" uniqueid="[engine:junit-jupiter]/[class:test.UnitTesting]/[method:testSendEmail()]"/>
+    <testcase name="testInvalidEmail" classname="test.UnitTesting" time="0.001" displayname="testInvalidEmail()" uniqueid="[engine:junit-jupiter]/[class:test.UnitTesting]/[method:testInvalidEmail()]"/>
+  </testsuite>
+</testrun>

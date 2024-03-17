@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="UnitTesting" project="test" tests="4" started="4" failures="1" errors="0" ignored="0">
+  <testsuite name="test.UnitTesting" time="1.256" displayname="UnitTesting" uniqueid="[engine:junit-jupiter]/[class:test.UnitTesting]">
+    <testcase name="testPasswordLength" classname="test.UnitTesting" time="0.017" displayname="testPasswordLength()" uniqueid="[engine:junit-jupiter]/[class:test.UnitTesting]/[method:testPasswordLength()]"/>
+    <testcase name="testValidEmail" classname="test.UnitTesting" time="0.001" displayname="testValidEmail()" uniqueid="[engine:junit-jupiter]/[class:test.UnitTesting]/[method:testValidEmail()]"/>
+    <testcase name="testSendEmail" classname="test.UnitTesting" time="1.223" displayname="testSendEmail()" uniqueid="[engine:junit-jupiter]/[class:test.UnitTesting]/[method:testSendEmail()]"/>
+    <testcase name="testInvalidEmail" classname="test.UnitTesting" time="0.013" displayname="testInvalidEmail()" uniqueid="[engine:junit-jupiter]/[class:test.UnitTesting]/[method:testInvalidEmail()]">
+      <failure>
+        <expected>false</expected>
+        <actual>true</actual>
+        org.opentest4j.AssertionFailedError: Invalid Email Type ==&gt; expected: &lt;false&gt; but was: &lt;true&gt;&#13;
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)&#13;
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)&#13;
+	at org.junit.jupiter.api.AssertFalse.failNotFalse(AssertFalse.java:63)&#13;
+	at org.junit.jupiter.api.AssertFalse.assertFalse(AssertFalse.java:36)&#13;
+	at org.junit.jupiter.api.Assertions.assertFalse(Assertions.java:239)&#13;
+	at test.UnitTesting.testInvalidEmail(UnitTesting.java:43)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)&#13;
+&#13;
+
+      </failure>
+    </testcase>
+  </testsuite>
+</testrun>

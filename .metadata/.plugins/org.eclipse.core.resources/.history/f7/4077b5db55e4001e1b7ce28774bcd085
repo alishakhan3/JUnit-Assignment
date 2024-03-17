@@ -1,0 +1,74 @@
+package test;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+public class forgotPassword {
+	private Map<String, String> users;
+
+	public forgotPassword() {
+		this.users = new HashMap<>();
+	}
+
+	public void registerUser(String email, String pwd) {
+		users.put(email, pwd);
+	}
+
+	private boolean userExists(String email) {
+		if (users.containsKey(email)) {
+			es.reset(email);
+			return true;
+		}
+		return false;
+	}
+
+	private void login(String email, String pwd) {
+		if (users.containsKey(email) && users.get(email).equals(pwd)) {
+
+		}
+	}
+
+	public static void main(String args[]) {
+		forgotPassword fp = new forgotPassword();
+		Scanner sc = new Scanner(System.in);
+
+		System.out.println("Press 1 for Registering User. Press 2 for Forgot Password");
+
+		int op = sc.nextInt();
+
+		if (op == 1) {
+
+			System.out.println("Enter your email: ");
+			String email = sc.nextLine();
+
+			System.out.println("Enter your password: ");
+			String pwd = sc.nextLine();
+
+			fp.registerUser(email, pwd);
+
+		}
+
+		if (op == 2) {
+
+			System.out.println("Enter your email: ");
+			String loginemail = sc.nextLine();
+
+			if (fp.userExists(loginemail)) {
+				System.out.println("Email Sent Successfully");
+
+				System.out.println("Enter your password: ");
+				String loginpwd = sc.nextLine();
+
+				if (fp.login(loginemail, loginpwd)) {
+					System.out.println("Login Successful");
+				} else {
+					System.out.println("Invalid email or password");
+				}
+			}
+
+			sc.close();
+		}
+
+	}
+

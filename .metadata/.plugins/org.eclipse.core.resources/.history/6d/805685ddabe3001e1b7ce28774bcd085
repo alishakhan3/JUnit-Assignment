@@ -1,0 +1,44 @@
+package test;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+public class forgotPassword {
+	private Map<String, String> users;
+	private EmailService es;
+	
+	public forgotPassword(emailService es) {
+		this.users=new HashMap<>();
+		this.es=es;
+	}
+	
+	public void registerUser(String email, String pwd) {
+		users.put("alisha.khan1@accolitedigital.com", "alisha");
+		users.put("alisha.khan2@accolitedigital.com", "khan");
+		users.put(email, pwd);
+	}
+	
+	public boolean resetPassword(String email) {
+		if(users.containsKey(email)) {
+			es.resent(email);
+			return true;
+		}
+		return false;
+	}
+	
+	private boolean login(String email, String pwd) {
+		if(users.containsKey(email) && users.get(email).equals(pwd)) {
+			return true;
+		}
+		return false;
+	}
+	
+	public static void main(String args[]) {
+		forgotPassword fp=new forgotPassword();
+		
+	}
+	
+}
+
+

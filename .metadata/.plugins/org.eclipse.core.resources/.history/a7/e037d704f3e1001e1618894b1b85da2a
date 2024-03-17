@@ -1,0 +1,22 @@
+package test;
+
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
+
+public class UnitTesting {
+	
+	@Test
+	public void testAdd() {
+		//Calculator calcobj=Mockito.mock(Calculator.class);
+		Calculator calcobj=new Calculator();
+		//Mockito.when(calcobj.add(10, 20)).thenCallRealMethod();
+		Assertions.assertEquals(30, calcobj.add(10,20));
+	}
+	
+	/*@Test
+	public void testDivide() {
+		Calculator calcobj=new Calculator();
+	}*/
+	
+}

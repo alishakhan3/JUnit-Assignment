@@ -1,0 +1,17 @@
+package test;
+
+import org.junit.jupiter.*;
+import org.junit.jupiter.api.Test;
+
+public class UnitTesting {
+	
+	@Test
+	public void abc() {
+		
+	}
+	
+	@Test
+	public void abc1(){
+	
+	}
+}
